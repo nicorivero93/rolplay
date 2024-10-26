@@ -1,3 +1,7 @@
+/* 
+Estilo general del cuerpo de la página: 
+fondo oscuro, texto claro, fuente estilo Garamond 
+*/
 body {
     background-color: #1e1b1b;
     color: #f0e6d2;
@@ -7,6 +11,41 @@ body {
     text-align: center;
 }
 
+/* 
+Barra de navegación: estilo de fondo oscuro 
+y texto centrado para la barra de navegación principal 
+*/
+.navbar {
+    background-color: #4a2c2a;
+    padding: 10px;
+    text-align: center;
+}
+
+    .navbar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .navbar li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+    .navbar a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+/* 
+Encabezados principales y secundarios: 
+color dorado con sombra para resaltarlos sobre el fondo oscuro 
+*/
 h1 {
     font-size: 3em;
     margin-top: 20px;
@@ -21,6 +60,10 @@ h2 {
     text-shadow: 2px 2px 4px #000000;
 }
 
+/* 
+Sección de creación de personajes: 
+estilo con fondo oscuro, borde dorado, y sombra 
+*/
 #characterCreation {
     background-color: #2e2b2b;
     border-radius: 10px;
@@ -32,6 +75,7 @@ h2 {
     width: 50%;
 }
 
+/* Estilo de etiquetas y campos de entrada en el formulario de personajes */
 #characterForm label {
     display: block;
     margin-top: 10px;
@@ -48,6 +92,9 @@ h2 {
     width: 100%;
 }
 
+/* 
+Botones generales: estilo dorado con efecto hover más oscuro 
+*/
 button {
     background-color: #d4af37;
     border: none;
@@ -63,6 +110,9 @@ button {
         background-color: #c29b2c;
     }
 
+/* 
+Tablero de juego: fondo oscuro con sombra, y redondeo de esquinas 
+*/
 #gameBoard {
     background-color: #2e2b2b;
     border-radius: 10px;
@@ -73,6 +123,10 @@ button {
     width: 80%;
 }
 
+/* 
+Sección de mapa: 
+centrado, con imagen bordeada y sombra 
+*/
 #mapSection {
     margin: 20px auto;
     text-align: center;
@@ -85,6 +139,10 @@ button {
         box-shadow: 0 0 15px #000000;
     }
 
+/* 
+Estilos compartidos de fondo oscuro y borde dorado 
+para secciones específicas del juego 
+*/
 #characterCreation, #characterList, #gameBoard, #chat, #mapSection {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -92,6 +150,10 @@ button {
     border-radius: 8px;
 }
 
+/* 
+Sección de mensajes de chat, con altura fija 
+y desplazamiento vertical para mensajes largos 
+*/
 #chatMessages {
     height: 200px;
     overflow-y: scroll;
@@ -101,6 +163,7 @@ button {
     margin-bottom: 10px;
 }
 
+/* Estilos de formulario de chat: entradas y botones */
 #chatForm input {
     width: 80%;
     padding: 10px;
@@ -117,6 +180,8 @@ button {
     background-color: #333;
     color: #fff;
 }
+
+/* Sección de tiradas de dados: fondo oscuro y centrado */
 #diceRoller {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -132,6 +197,7 @@ button {
     color: #fff;
 }
 
+/* Botón para tirar el dado */
 #rollDice {
     padding: 10px;
     border-radius: 8px;
@@ -142,6 +208,7 @@ button {
     cursor: pointer;
 }
 
+/* Resultado de la tirada de dado */
 #diceResult {
     font-size: 1.5em;
     margin-top: 10px;

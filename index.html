@@ -3,108 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Rol - Aquelarre</title>
+    <title>Login y Registro - D&D</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script>
+        // Función para alternar entre el formulario de login y el de registro
+        function toggleForm() {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+            registerForm.style.display = registerForm.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
 </head>
 <body>
-    <h1>Juego de Rol - Aquelarre</h1>
+    <div class="container">
+        <h1>Portal de Aventureros</h1>
 
-    <div id="characterCreation">
-        <h2>Creacion de Personajes</h2>
-        <form id="characterForm">
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required><br>
+        <!-- Formulario de Login -->
+        <div id="loginForm">
+            <h2>Iniciar Sesión</h2>
+            <form action="login.php" method="POST">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
 
-            <label for="class">Clase Principal:</label>
-            <select id="class" name="class" required>
-                <option value="guerrero">Guerrero</option>
-                <option value="hechicero">Hechicero</option>
-                <option value="clerigo">Clerigo</option>
-                <option value="ladron">Ladron</option>
-                <option value="cazador">Cazador</option>
-                <option value="barbaro">Barbaro</option>
-                <option value="noble">Noble</option>
-                <option value="burgues">Burgues</option>
-                <option value="campesino">Campesino</option>
-                <option value="erudito">Erudito</option>
-                <option value="artista">Artista</option>
-            </select><br>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
 
-
-            <label for="socialClass">Clase Social:</label>
-            <select id="socialClass" name="socialClass" required>
-                <option value="noble">Noble</option>
-                <option value="campesino">Campesino</option>
-                <option value="burgues">Burgu�s</option>
-                <!-- Agrega mas clases sociales segun el manual de Aquelarre -->
-            </select><br>
-
-            <label for="strength">Fuerza:</label>
-            <input type="number" id="strength" name="strength" min="1" max="100" required><br>
-
-            <label for="agility">Agilidad:</label>
-            <input type="number" id="agility" name="agility" min="1" max="100" required><br>
-
-            <label for="intelligence">Inteligencia:</label>
-            <input type="number" id="intelligence" name="intelligence" min="1" max="100" required><br>
-
-            <label for="charisma">Carisma:</label>
-            <input type="number" id="charisma" name="charisma" min="1" max="100" required><br>
-
-            <button type="submit">Crear Personaje</button>
-        </form>
-    </div>
-
-    <div id="characterList">
-        <h2>Personajes Creados</h2>
-        <ul id="characters">
-            <!-- Aqu� se mostraron los personajes creados -->
-        </ul>
-    </div>
-
-    <div id="gameBoard">
-        <h2>Tablero de Juego</h2>
-        <div id="diceRoller">
-            <h2>Tirada de Dados</h2>
-            <label for="diceType">Selecciona el tipo de dado:</label>
-            <select id="diceType">
-                <option value="4">D4</option>
-                <option value="6">D6</option>
-                <option value="8">D8</option>
-                <option value="10">D10</option>
-                <option value="12">D12</option>
-                <option value="20">D20</option>
-                <!-- Aniade mas opciones si lo necesitas -->
-            </select>
-            <button id="rollDice">Tirar Dado</button>
-
-            <h3>Resultado:</h3>
-            <p id="diceResult">-</p>
+                <button type="submit">Ingresar</button>
+            </form>
+            <p>¿No tienes una cuenta? <a href="javascript:toggleForm()">Crear una cuenta nueva</a></p>
         </div>
 
-        <!-- Seccion donde se mostraron las tiradas de dados, decisiones y progreso de la historia -->
-        <button id="startGame">Comenzar Juego</button>
-    </div>
+        <!-- Formulario de Registro -->
+        <div id="registerForm" style="display: none;">
+            <h2>Crear Cuenta</h2>
+            <form action="login.php" method="POST">
+                <label for="newUsername">Usuario:</label>
+                <input type="text" id="newUsername" name="username" required>
 
-    <div id="chat">
-        <h2>Chat de Jugadores</h2>
-        <div id="chatMessages">
-            <!-- Mensajes del chat se mostraron aqui -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="newPassword">Contraseña:</label>
+                <input type="password" id="newPassword" name="password" required>
+
+                <button type="submit">Registrarse</button>
+            </form>
+            <p>¿Ya tienes una cuenta? <a href="javascript:toggleForm()">Iniciar Sesión</a></p>
         </div>
-        <form id="chatForm">
-            <input type="text" id="chatInput" placeholder="Escribe un mensaje..." required>
-            <button type="submit">Enviar</button>
-        </form>
     </div>
 
-    <div id="mapSection">
-        <h2>Mapa de Aquelarre</h2>
-        <!-- Aqui podrias integrar un mapa interactivo -->
-        <img src="mapa-aquelarre.jpg" alt="Mapa de Aquelarre">
-    </div>
-
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <!--script src="/socket.io/socket.io.js"></script> -->
     <script src="script.js"></script>
+    <script src="bd.js"></script>
 </body>
 </html>
+
