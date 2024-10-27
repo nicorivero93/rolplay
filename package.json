@@ -11,6 +11,8 @@
   "description": "",
   "dependencies": {
     "express": "^4.19.2",
+    "express-session": "^1.18.1",
+    "md5": "^2.3.0",
     "mysql": "^2.18.1",
     "socket.io": "^4.7.5",
     "util": "^0.12.5"
